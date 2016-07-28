@@ -95,7 +95,7 @@ $array=mysqli_fetch_array($select);                       //获取所有新闻�
               <td colspan="2">
                 <div align="center">
                   <input type="submit" name="Submit" value="提交" />
-                  <a href="update.php" ">
+                  <a href="update.php" >
                     <button type = "button">取消</button>
                   </a>
                 </div>
