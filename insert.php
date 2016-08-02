@@ -92,6 +92,17 @@ $array=mysqli_fetch_array($select);                       //获取所有新闻�
               </td>
             </tr>
             <tr>
+              <td>
+                <div align="left">正文：</div>
+              </td>
+              <td>
+                <div align="left">
+                  <textarea name="origin" cols="50" id="origin"></textarea>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
               <td colspan="2">
                 <div align="center">
                   <input type="submit" name="Submit" value="提交" />
