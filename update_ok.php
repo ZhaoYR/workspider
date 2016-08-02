@@ -94,7 +94,7 @@ include("conn/conn.php");
               </td>
               <td>
                 <div align="left">
-                   <?php echo $array['content'];?>
+                   <?php echo $array['origin'];?>
                 </div>
               </td>
             </tr>
