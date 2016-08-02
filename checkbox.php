@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
 <?php
@@ -158,21 +157,21 @@ if (mysqli_connect_errno())
 	
 <table align="center" border="0" cellpadding="0" cellspacing="0" width="657">
 
-        <tr>	  
+    <tr>	  
 	      
-            <td valign="top" width="657" height="300" style="border-left:1px rgb(236,236,236) solid; border-right:1px rgb(236,236,236) solid; border-bottom:1px rgb(236,236,236) solid;">
+        <td valign="top" width="657" height="300" style="border-left:1px rgb(236,236,236) solid; border-right:1px rgb(236,236,236) solid; border-bottom:1px rgb(236,236,236) solid;">
           
-                <table border="0" cellpadding="20" cellspacing="0" width="100%">
+            <table border="0" cellpadding="20" cellspacing="0" width="100%">
             
-                    <tbody>
+                <tbody>
 			
-                        <tr>
+                    <tr>
               
-                            <td>
+                        <td>
 							
-								<h3 style="color: #03C1E4;letter-spacing: 1px; font:18px/30px "microsoft yahei"; margin:0 0 18px 0px;" align = "center">技术动态列表</h3>
+							<h3 style="color: #03C1E4;letter-spacing: 1px; font:18px/30px "microsoft yahei"; margin:0 0 18px 0px;" align = "center">技术动态列表</h3>
                 
-                                <dl style="margin:0;" class="liststyle">
+                            <dl style="margin:0;" class="liststyle">
 								
 <?php
 for($i=0;$i<count($a);$i++) 
@@ -184,7 +183,8 @@ for($i=0;$i<count($a);$i++)
  
 	
 	$tdstr = "";
-	$tdstr .= "<p align='left' style='color:#333; font:16px/24px 'microsoft yahei'; margin-top: 2px;'>&nbsp&nbsp$array[title]</p>";
+	//$tdstr .= "<p align='center' style='color:#333; font:16px/24px 'microsoft yahei'; margin-top: 2px;'><a href='#news$i'>$array[title]</a></p>";
+	$tdstr .="<li style='color:#333; font:16px/24px 'microsoft yahei'; margin-top: 2px;'><a href='#news$i'>$array[title]</a></li>";
 	//$tdstr .= "<td><a href = '$row[url]' target='_blank'>$row[url]</a></td>"; 
 	//$tdstr .= "<td>$row[time]</td>"; 
 	//$tdstr .= "<td>$row[title]</td>"; 
@@ -197,21 +197,28 @@ for($i=0;$i<count($a);$i++)
 
 ?>
 
-</dl></td></tr></tbody></table></td></tr></table>
+							</dl>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</td>
+	</tr>
+</table>
 
-<table align="center" border="0" cellpadding="0" cellspacing="0" width="657">
+<table align='center' border="0" cellpadding="0" cellspacing="0" width="657">
 	
         <tr>	
            
             <td valign="top" width="657" height="600" style="border-left:1px rgb(236,236,236) solid;border-right:1px rgb(236,236,236) solid;border-bottom:1px rgb(236,236,236) solid">            
             
-                <table border="0" cellpadding="20" style="" cellspacing="0" width="100%" >
+                <table border="0" cellpadding="20" style="" cellspacing="0" width="100%">
             
                     <tbody>
 			
 						<tr>
               
-                            <td><h3 style="color: #03C1E4; letter-spacing: 1px; font:18px/30px 'microsoft yahei'; margin:0 0 18px 0;">技术动态</h3>
+                            <td><h3 style="color: #03C1E4; letter-spacing: 1px; font:18px/30px 'microsoft yahei'; margin:0 0 18px 0">技术动态</h3>
                 
 								<dl style="margin:0;">
 
@@ -223,11 +230,12 @@ for($i=0;$i<count($a);$i++)
   	$array=mysqli_fetch_array($select);
 
 	$array['time']=substr($array['time'], 0, 10);
-	$tdst = "";
-    $tdst .= "<dd align ='left' style='font:16px/24px 'microsoft yahei'; margin-top: 10px;'><a href='$array[url]' target='_blank'>$array[title]</a></dd>";
-    $tdst .= "<dd align ='left' style='font:12px/20px 'microsoft yahei'; margin: 0; margin-top:5px;'>来源：$array[ip] $array[time]</dd>";
-	$tdst .= "<dd align ='left' style='color:#999; font:12px/20px 'microsoft yahei'; margin: 0;margin-top:5px;'>$array[content]</dd>";
-	$tdst .="<br>";
+
+	$tdst = "<dt style='font:16px/24px 'microsoft yahei'; margin-top: 10px;'><a name='news$i' href='$array[url]' target='_blank'>$array[title]</a> </dt>";
+    $tdst .= "<dd style='font:12px/20px 'microsoft yahei'; margin: 0; margin-top:5px;'>来源：$array[ip] $array[time]</dd>";
+	$tdst .= "<dd style='color:#999; font:12px/20px 'microsoft yahei'; margin: 0; margin-top:5px;'>$array[content]</dd>";
+	$tdst .= "<br>";
+
     echo $tdst; 
 }
 
@@ -275,7 +283,6 @@ for($i=0;$i<count($a);$i++)
         <area shape="rect" coords="325,4,430,30" href="http://www.ztb.iscas.ac.cn/outservice/public/home/index" target="_blank">
         
     </map>
-
 
 
 </body>
