@@ -3,6 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>修改新闻</title>
+  <script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
 
 <body>
   <?php
@@ -14,6 +15,7 @@ include("conn/conn.php");
 }
 
 ?>
+
 
   <table width="500" height="500" border="0" align="center" cellpadding="0" cellspacing="0" >
 
@@ -89,8 +91,21 @@ include("conn/conn.php");
               </td>
             </tr>
             <tr>
+              <td>
+                <div align="left" width="30">ckeditor正文：</div>
+              </td>
+              <td>
+                <div align="left">
+                  <textarea name="origint" rows="10" cols="100" id="content"><?php echo $array['origin'];?></textarea>
+                  <script type="text/javascript">CKEDITOR.replace('origint');</script>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
                <td>
-                <div align="left" width="30">正文：</div>
+                <div name= "originzheng" align="left" width="30">正文：</div>
+                
               </td>
               <td>
                 <div align="left">
@@ -98,14 +113,13 @@ include("conn/conn.php");
                 </div>
               </td>
             </tr>
+
             <tr>
               <td colspan="2">
                 <div align="center">
                   <input type="submit" name="Submit" value="提交" />
                   <input type="reset" name="Submit2" value="重置" />
-                  <input type="hidden" name="id" value="<?php echo $array['id'];?>
-                  "/>
-                  <!--隐藏域--> </div>
+                  <input type="hidden" name="id" value="<?php echo $array['id'];?>"/><!--隐藏域--></div>
               </td>
             </tr>
           </table>
